@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -6,14 +7,24 @@ export default function Index() {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#fff",
+      backgroundColor: "#25292e",
     },
+    text: {
+      fontSize: 20,
+      color: "#fff",
+    },
+    button: {
+      fontSize: 20,
+      textDecorationLine: "underline",
+      color: "#fff"
+     }
   });
   return (
     <View
       style={styles.container}
     >
-      <Text>hello world .  sub . i know life might be hard now but keep believing and you'll find your way through.</Text>
+      <Text style={styles.text}>hello Sticker smacher</Text>
+      <Link style={styles.button} href="/about">About</Link>
     </View>
   );
 }
