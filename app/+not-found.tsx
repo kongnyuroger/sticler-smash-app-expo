@@ -1,4 +1,3 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -23,8 +22,8 @@ export default function Index() {
     <View
       style={styles.container}
     >
-      <Text style={styles.text}>hello Sticker smacher</Text>
-      <Link style={styles.button} href="/about">About</Link>
+      <Text style={styles.text}>hello page is not found</Text>
+      
     </View>
   );
 }
