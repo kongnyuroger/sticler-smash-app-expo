@@ -11,29 +11,31 @@ export default function Index() {
       alignItems: "center",
       backgroundColor: "#25292e",
     },
+    footerContainer: {
+      flex: 1/3,
+      alignItems: "center",
+    }
   
-     image: {
-      width: 320,
-      height: 440,
-      borderRadius: 14,
-     },
-     imageContainer: {flex: 1
-
-     }
+    
   });
   return (
-    <>
+    
     <View
       style={styles.container}
-    >
-      <ImageViewer imageSource={placeHolderImage} />
+    > 
+    <View>
+       <ImageViewer imageSource={placeHolderImage} />
+    </View>
+
+     <View>
+      <Button label="choose photo" />
+      <Button label="use this photo" />
+    </View>
     
     </View>
 
-    <View>
-      <Button label="Scan QR Code" />
-    </View>
-    </>
+    
+    
   );
 }
 
