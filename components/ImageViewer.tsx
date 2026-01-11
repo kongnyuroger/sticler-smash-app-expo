@@ -13,13 +13,11 @@ export default function ImageViewer({ imageSource }: Props) {
       height: 440,
       borderRadius: 14,
      },
-     imageContainer: {flex: 1
-
-     }
+     
   });
   return (
     
-      <View style={styles.imageContainer}>
+      <View >
         <Image source={imageSource} style={styles.image} />
       </View>
     

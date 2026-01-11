@@ -29,6 +29,7 @@ export default function Button({ label }: Props) {
      },
      buttonLabel: {
         fontSize: 16,
+        color: '#fff',
      }
   });
   return (
