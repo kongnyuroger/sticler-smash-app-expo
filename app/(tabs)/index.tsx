@@ -14,17 +14,23 @@ export default function Index() {
     footerContainer: {
       flex: 1 / 3,
       alignItems: "center",
+      backgroundColor: "red",
     },
+    imageContainer: {
+      flex: 2 / 3,
+    }
   });
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.imageContainer}>
         <ImageViewer imageSource={placeHolderImage} />
       </View>
 
       <View style={styles.footerContainer}>
+        <>
         <Button label="choose photo" />
         <Button label="use this photo" />
+        </>
       </View>
     </View>
   );
