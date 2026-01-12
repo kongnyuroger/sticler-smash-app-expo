@@ -1,8 +1,8 @@
 import Button from "@/components/Button";
 import ImageViewer from "@/components/ImageViewer";
 import * as ImagePicker from "expo-image-picker";
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-
 export default function Index() {
   const placeHolderImage = require("../../assets/images/backgroundImg.jpg");
   const styles = StyleSheet.create({
@@ -29,15 +29,18 @@ export default function Index() {
     });
     if (!result.canceled) {
       console.log(result.assets[0].uri);
+      setSelectedImage(result.assets[0].uri);
     } else {
       console.log("you did not select any image");
     }
   };
 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <ImageViewer imageSource={placeHolderImage} />
+        <ImageViewer imageSource={selectedImage ? selectedImage : placeHolderImage} />
       </View>
 
       <View style={styles.footerContainer}>
