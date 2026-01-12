@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import ImageViewer from "@/components/ImageViewer";
+import * as ImagePicker from "expo-image-picker";
 import { StyleSheet, View } from "react-native";
 
 export default function Index() {
@@ -20,6 +21,19 @@ export default function Index() {
       flex: 2 / 3,
     }
   });
+
+  const pickedImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1
+    });
+    if (!result.canceled) {
+      console.log(result.assets[0].uri);
+    } else {
+      console.log("you did not select any image");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -28,7 +42,7 @@ export default function Index() {
 
       <View style={styles.footerContainer}>
         <>
-        <Button label="choose photo" theme="primary"/>
+        <Button label="choose photo" theme="primary" onPress={pickedImageAsync} />
         <Button label="use this photo" />
         </>
       </View>
