@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import CircleButtons from "@/components/CircleButton";
+import IconButton from "@/components/IconButton";
 import ImageViewer from "@/components/ImageViewer";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
@@ -19,7 +21,21 @@ export default function Index() {
     imageContainer: {
       flex: 2 / 3,
     },
+    optionsContainer: {
+      position: "absolute",
+      bottom: 80,
+    },
+    optionsRow: {
+      alignItems: "center",
+      flexDirection: "row",
+    },
   });
+
+  function onReset() {
+    setAppOptions(false);
+  }
+  function onAddSticker() {}
+  async function onSaveImageAsync() {}
 
   const pickedImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -46,14 +62,17 @@ export default function Index() {
           imageSource={selectedImage ? selectedImage : placeHolderImage}
         />
       </View>
-      {isImageSelected ? (
-        <View style={styles.footerContainer}>
-          <Button
-            label="choose photo"
-            theme="primary"
-            onPress={pickedImageAsync}
-          />
-          <Button label="use  photo" />
+      {showAppOptions ? (
+        <View style={styles.optionsContainer}>
+          <View style={styles.optionsRow}>
+            <IconButton icon="refresh" label="Reset" onPress={onReset} />
+            <CircleButtons onPress={onAddSticker} />
+            <IconButton
+              icon="save-alt"
+              label="Save"
+              onPress={onSaveImageAsync}
+            />
+          </View>
         </View>
       ) : (
         <View style={styles.footerContainer}>
@@ -64,7 +83,7 @@ export default function Index() {
               onPress={pickedImageAsync}
             />
             <Button
-              onPress={() => setIsImageSelected(true)}
+              onPress={() => setAppOptions(true)}
               label="use this photo"
             />
           </>

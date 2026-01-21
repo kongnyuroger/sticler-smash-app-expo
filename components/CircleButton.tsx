@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 type probs = {
   onPress: () => void;
@@ -19,13 +19,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 42,
+    width: 70,
+    height: 79,
     backgroundColor: "#fff",
   },
 });
-export default function circleButtons({ onPress }: probs) {
-  <view style={styles.circleButtonContainer}>
-    <Pressable onPress={onPress}>
-      <MaterialIcons name="add" size={38} color="#25292e" />
-    </Pressable>
-  </view>;
+export default function CircleButtons({ onPress }: probs) {
+  return (
+    <View style={styles.circleButtonContainer}>
+      <Pressable style={styles.circleButton} onPress={onPress}>
+        <MaterialIcons name="add" size={38} />
+      </Pressable>
+    </View>
+  );
 }
