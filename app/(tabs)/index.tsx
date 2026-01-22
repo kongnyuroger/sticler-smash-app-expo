@@ -2,11 +2,13 @@ import Button from "@/components/Button";
 import CircleButtons from "@/components/CircleButton";
 import EmojiList from "@/components/EmojiList";
 import EmojiPicker from "@/components/EmojiPicker";
+import EmojiSticker from "@/components/EmojiSticker";
 import IconButton from "@/components/IconButton";
 import ImageViewer from "@/components/ImageViewer";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import { ImageSourcePropType, StyleSheet, View } from "react-native";
+
 export default function Index() {
   const placeHolderImage = require("../../assets/images/backgroundImg.jpg");
   const styles = StyleSheet.create({
@@ -76,6 +78,9 @@ export default function Index() {
         <ImageViewer
           imageSource={selectedImage ? selectedImage : placeHolderImage}
         />
+        {pickedEmoji && (
+          <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
+        )}
       </View>
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
